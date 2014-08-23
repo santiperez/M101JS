@@ -1,0 +1,10 @@
+////////////////////AddUser//////////////////////////
+
+users.insert(user, function(err, inserted) {
+  if(err) callback(err, null);
+  else callback(null, inserted[0]);
+});
+
+////////////////////Login//////////////////////////
+
+users.findOne({_id:username},validateUserDoc);
