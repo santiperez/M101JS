@@ -1,0 +1,4 @@
+posts.findAndModify({ permalink: permalink},{},{'$push': {comments:comment}},{new:true}, function (err,res){
+     if (err) return callback(err, null);
+     else return callback(err,res!=null);
+})

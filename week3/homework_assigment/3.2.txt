@@ -1,0 +1,4 @@
+posts.insert(post,function(err,res){
+  if(err){callback(err, null)};
+  else{callback(err,post.permalink)};
+});

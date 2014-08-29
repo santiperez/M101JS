@@ -1,0 +1,11 @@
+-> db.students.aggregate( { '$unwind' : '$scores' } , { '$group' : { '_id' : '$_id' , 'average' : { $avg : '$scores.score' } } } , { '$sort' : { 'average' : -1 } } , { '$limit' : 1 } )
+{
+        "result" : [
+                {
+                        "_id" : 13,
+                        "average" : 91.98315917172745
+                }
+        ],
+        "ok" : 1
+}
+>
