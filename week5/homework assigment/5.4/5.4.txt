@@ -1,0 +1,3 @@
+query-> db.zips.aggregate([{"$project": {"_id":0, "zipcode": "$_id", "first_char": {$substr: ["$city",0,1]}, "pop": "$pop"}},{"$match": {"first_char": {"$gte": "0", "$lte":"9"}}},{"$group": {"_id":0, "pop": {"$sum": "$pop"}}}])
+
+"result" : [ { "_id" : 0, "pop" : 298015 } ], "ok" : 1 }

@@ -1,0 +1,10 @@
+query->db.grades.aggregate([{"$unwind":"$scores"}, {"$match": {"scores.type": {"$ne":"quiz"}}}, {"$group": {"_id": {"class_id":"$class_id", "student_id":"$student_id"}, student_score: {$avg: "$scores.score"}}}, {"$group": {"_id": "$_id.class_id", "class_score": {$avg: "$student_score"}}}, {"$sort": {"class_score":-1}} ])
+
+
+{
+   "result" : [
+    {
+      "_id" : 1,
+      "class_score" : 64.50642324269175
+    },
+}
